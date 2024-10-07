@@ -62,7 +62,7 @@ public class ManagerService {
 
     public List<ManagerResponse> getManagers(long todoId) {
         Todo todo = todoRepository.findById(todoId)
-                .orElseThrow(() -> new InvalidRequestException("Todo not found"));
+                .orElseThrow(() -> new NullPointerException("Todo not found"));
 
         List<Manager> managerList = managerRepository.findByTodoIdWithUser(todo.getId());
 
